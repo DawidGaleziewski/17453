@@ -9,6 +9,7 @@ class Counter extends Component{
         let initValue = 0;
         this.state = {
             counterDisplayValue: Number(this.props.initValue),
+            stepValue: 0
         }
     }
     
@@ -31,20 +32,35 @@ class Counter extends Component{
     setZero = () => {
         this.setState(()=> {
             return({
-                counterDisplayValue: 0
+                counterDisplayValue: 0,
+            })
+        })
+    }
+
+
+    // Here more changes need to be made
+    getInputValue = (stepValueNew)=> {
+        console.log(stepValueNew)
+        console.log(this.state.stepValue)
+        // console.log(this.stepValue)
+        this.setState((stepValueNew)=> {
+            return({
+                stepValue: stepValueNew
             })
         })
     }
 
     render(){
+        // console.log(this.state.stepValue)
         return(
+          
             <main className="Counter-main">
                 <h2 className="Counter-display">
                     Licznik: <span className="Counter-display--number">{this.state.counterDisplayValue}</span>
                 </h2>
                 {/* <CounterDisplay/> */}
                 <ButtonPanel changeValue = {this.changeValue} resetInit = {this.resetInit} setZero = {this.setZero}/>
-                <CounterStep/>
+                <CounterStep stepValue = {this.state.stepValue} getInputValue = {this.getInputValue}/>
             </main>
         )
     }

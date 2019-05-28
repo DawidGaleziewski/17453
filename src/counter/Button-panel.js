@@ -7,7 +7,6 @@ class ButtonPanel extends Component {
                 <button onClick={this.props.changeValue} className="btn">Add 1</button>
                 <button onClick={this.props.resetInit}  className="btn">ReInit</button>
                 <button onClick={this.props.setZero}  className="btn">Reset</button>
-                <button onClick={this.props.setZero}  className="btn">Add X</button>
             </div>
         )
     }
