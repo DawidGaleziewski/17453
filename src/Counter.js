@@ -13,10 +13,25 @@ class Counter extends Component{
     }
     
     changeValue = () => {
-        console.log(this.state.counterDisplayValue);
         this.setState((prevState) =>{
             return({
                 counterDisplayValue: prevState.counterDisplayValue +1
+            })
+        })
+    }
+
+    resetInit = () => {
+        this.setState(()=> {
+            return ({
+                counterDisplayValue: Number(this.props.initValue)
+            })
+        })
+    }
+
+    setZero = () => {
+        this.setState(()=> {
+            return({
+                counterDisplayValue: 0
             })
         })
     }
@@ -28,7 +43,7 @@ class Counter extends Component{
                     Licznik: <span className="Counter-display--number">{this.state.counterDisplayValue}</span>
                 </h2>
                 {/* <CounterDisplay/> */}
-                <ButtonPanel changeValue = {this.changeValue}/>
+                <ButtonPanel changeValue = {this.changeValue} resetInit = {this.resetInit} setZero = {this.setZero}/>
                 <CounterStep/>
             </main>
         )

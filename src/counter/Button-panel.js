@@ -5,8 +5,9 @@ class ButtonPanel extends Component {
         return(
             <div className="Button-panel"> 
                 <button onClick={this.props.changeValue} className="btn">Add 1</button>
-                <button onClick={()=> {console.log('test 2')}}  className="btn">ReInit</button>
-                <button onClick={()=> {console.log('test 3')}}  className="btn">Reset</button>
+                <button onClick={this.props.resetInit}  className="btn">ReInit</button>
+                <button onClick={this.props.setZero}  className="btn">Reset</button>
+                <button onClick={this.props.setZero}  className="btn">Add X</button>
             </div>
         )
     }
