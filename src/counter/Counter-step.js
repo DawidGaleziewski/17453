@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 
 class CounterStep extends Component{
 
-        
-    getValue = () => {
-        console.log('step' + this.step)
-    }
+
 
     render(){
         return(
