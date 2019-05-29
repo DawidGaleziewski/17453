@@ -6,9 +6,10 @@ import CounterStep from "./counter/Counter-step.js"
 class Counter extends Component{
     constructor(props){
         super(props);
-        let initValue = 0;
+        let initValue = 1;
         this.state = {
             counterDisplayValue: Number(this.props.initValue),
+            stepValue: 1
         }
     }
     
@@ -39,7 +40,17 @@ class Counter extends Component{
     getInputValue = (stepValueNew)=> {
         this.setState((prevState)=> {
             return({
-                counterDisplayValue: Number(prevState.counterDisplayValue) +  Number(stepValueNew)
+                stepValue: Number(stepValueNew),
+
+            })
+        })
+    }
+
+    addSteps = (stepValueNew)=> {
+        this.setState((prevState)=> {
+            console.log(this.stepValue)
+            return({
+                counterDisplayValue: Number(prevState.counterDisplayValue) + Number(this.state.stepValue)
 
             })
         })
@@ -53,7 +64,7 @@ class Counter extends Component{
                     Licznik: <span className="Counter-display--number">{this.state.counterDisplayValue}</span>
                 </h2>
                 <ButtonPanel changeValue = {this.changeValue} resetInit = {this.resetInit} setZero = {this.setZero}/>
-                <CounterStep stepValue = {this.state.stepValue} getInputValue = {this.getInputValue}/>
+                <CounterStep stepValue = {this.state.stepValue} getInputValue = {this.getInputValue} addSteps = {this.addSteps}/>
             </main>
         )
     }
